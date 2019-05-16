@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run spectradock/react-app-docker npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "dock-react"
+  env: "DockReact-env"
+  bucket_name: "elasticbeanstalk-us-west-2-878955458484"
+  bucket_path: "dock-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"

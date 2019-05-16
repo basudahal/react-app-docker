@@ -5,5 +5,5 @@ services:
 before_install:
   - docker build -t spectradock/react-app-docker -f Dockerfile.dev .
 
-scripts:
+script:
   - docker run spectradock/react-app-docker npm run test -- --coverage

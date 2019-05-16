@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t spectradock/react-app-docker -f Dockerfile.dev .
+
+scripts:
+  - docker run spectradock/react-app-docker npm run test -- --coverage
